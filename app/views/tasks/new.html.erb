@@ -1,0 +1,40 @@
+<%= render :partial=>"left_menu" %>
+	<div class="span9">
+         
+	    <%= simple_form_for @task, :url => '/tasks/new', :html => { :class => 'well' } do |f| %>
+	    <% if flash[:error] %>	
+		<div class="alert alert-error">
+		  <a class="close" data-dismiss="alert" href="#">×</a>
+		    <h4 class="alert-heading">Warning!</h4>
+		    <%= h(flash[:error]) %>
+		</div>
+	      <% end %>
+	      
+	      <%= f.input :name %>
+	      <%= f.input :text, :input_html => { :rows => 10 } %>
+	      
+	      <%= f.input :is_enabled, :inline_label => 'Yes, Make it enabled' %>
+	      <%= f.submit 'Create Task', :class=>'btn btn-success btn-large' %>
+	      <%= f.submit 'Cancel', :class=>'btn btn-danger btn-large' %>
+	    <% end %>
+	    
+		
+		
+
+	  <div class="hero-unit">
+            <%# if @task_main %>
+            <h1><%#= @task_main.name %></h1>
+			<p>Deadline is <strong><%#= @task_main.deadline.strftime("%d/%m/%Y") %></strong></p>
+
+			<%#= form_for :task, :url => { :action => "update_task", :id =>  @task_main.id } do |f| %>
+				<%#= submit_tag 'Check as done', :class=>'btn btn-success btn-large' %>
+				<%#= submit_tag 'Edit', :class=>'btn btn-warning btn-large' %>
+				<%#= submit_tag 'Cancel task', :class=>'btn btn-danger btn-large' %>
+			<%# end %>
+
+			<%# else %>
+			<h1>I've not any tasks!</h1>
+			<%# end %>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
