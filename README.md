@@ -44,7 +44,7 @@ Task Manager allows you create tasks (WORK STATUS: UNDONE)
 
 #Screenshots
 
-* Soon
+* Soon, I promise!
 
 #Some bugs founded?
 
