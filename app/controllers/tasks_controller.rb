@@ -8,29 +8,32 @@ class TasksController < ActionController::Base
   load_and_authorize_resource
 
   def index
-    @task=Task.find(:first, :conditions=>["id=2"])
+	offset = rand(Task.important.count)
+	@task = Task.first(:offset => offset)
+	@tasks = Task.paginate(:order => "created_at desc", :page=>params[:page], :per_page => 6, :conditions => ["user_id=?",current_user.id])
   end
 
-  def new
+  def new	
     @task = Task.new
     if request.post?
       if params[:commit]=="Create Task" 
-	@task = Task.new(params[:task])
-	@task.user_id = current_user.id
-	@task.is_done = false
-	if @task.save
-	  flash[:notice] = "Added new Task!"
-	  redirect_to :action => :show, :id => @task.id
-	  return false
-	end
+		@task = Task.new(params[:task])
+		@task.user_id = current_user.id
+		@task.is_done = false
+		if @task.save
+		  flash[:notice] = "Added new Task!"
+		  redirect_to :action => :show, :id => @task.id
+		  return false
+		end
       else
-	redirect_to :action => :index
+		redirect_to :action => :index
       end
     end
   end
 
   def show
     @task = Task.find(params[:id])
+	authorize! :read, @article
   end
   
   def update
@@ -48,6 +51,19 @@ class TasksController < ActionController::Base
     task.save
     redirect_to :action => :show, :id => task.id
     return false
+  end
+
+  def done_tasks
+	@tasks = Task.paginate(:order => "created_at desc", :page=>params[:page], :per_page => 6, :conditions => ["user_id=? and is_done=true",current_user.id])
+  end
+
+  def destroy
+   @task = Task.find(params[:id])
+   if @task.destroy
+	flash[:notice] = "Deleted!"
+	redirect_to :action => :done_tasks
+	return false
+   end
   end
 
 end

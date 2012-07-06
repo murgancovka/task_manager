@@ -5,4 +5,13 @@ class Task < ActiveRecord::Base
   validates :text, :presence => { :message => "Text can't be blank" }
   
   attr_accessible :name, :text, :is_enabled, :is_frozen, :is_cancel, :user_id 
+
+  scope :important, :conditions => { :is_important => true }
+  scope :done, :conditions => { :is_done => true }
+
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['name LIKE ? OR text LIKE ?', search_condition, search_condition])
+  end
+
 end

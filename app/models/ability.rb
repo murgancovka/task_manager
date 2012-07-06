@@ -6,9 +6,14 @@ class Ability
     
     if user.role? :admin
       can :manage, :all
-    else
-      can :read, :all
+    elsif user.role? :manager
+	  can :read, Task
+	  can :create, Task
+      #authorize! :read, Task, :message => "Unable to read this article."
+       #can :access, :home
+      #authorize! :read, :all, :message => "Unable to read this article."
       #can :create, Task
+	  #can :update, Task
       #can :update, Task do |comment|
       #  comment.try(:user) == user || user.role?(:manager)
       #end
@@ -20,6 +25,7 @@ class Ability
       #end
     end
   end
+
 end
 
 

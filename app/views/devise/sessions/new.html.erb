@@ -1,9 +1,16 @@
-<h2>Join, please...</h2>
+<div class="container">
+  <div class="row">
+    <div class="offset4 span4">
+		<h2>Join, please...</h2>
 
-<%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'well' } do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.submit 'Sign in', :class=>'btn btn-success btn-large' %>
-<% end %>
+		<%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'well' } do |f| %>
+		  <%= f.input :email %>
+		  <%= f.input :password %>
+		  <%= f.submit 'Sign in', :class=>'btn btn-success btn-large' %>
+		<% end %>
 
-<%= render "devise/shared/links" %>
+		<%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+

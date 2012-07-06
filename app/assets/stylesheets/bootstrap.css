@@ -3208,7 +3208,7 @@ input[type="submit"].btn.btn-mini {
 .pagination li {
   display: inline;
 }
-.pagination a {
+.pagination a, .pagination span, .pagination .current {
   float: left;
   padding: 0 14px;
   line-height: 34px;
@@ -3220,7 +3220,7 @@ input[type="submit"].btn.btn-mini {
 .pagination .active a {
   background-color: #f5f5f5;
 }
-.pagination .active a {
+.pagination .active a, .pagination .current {
   color: #999999;
   cursor: default;
 }
@@ -3231,13 +3231,13 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
   cursor: default;
 }
-.pagination li:first-child a {
+.pagination li:first-child a, .pagination span, .pagination .current {
   border-left-width: 1px;
   -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
-.pagination li:last-child a {
+.pagination li:last-child a, .pagination span, .pagination .current {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
