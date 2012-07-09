@@ -46,6 +46,7 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     erubis (2.7.0)
+    event-calendar (2.3.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
@@ -128,6 +129,7 @@ GEM
     uglifier (1.2.6)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    ui_datepicker-rails3 (1.1.0)
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
@@ -139,6 +141,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   devise
+  event-calendar
   jquery-rails
   mysql2
   rails (= 3.2.4)
@@ -149,4 +152,5 @@ DEPENDENCIES
   simple_form
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  ui_datepicker-rails3
   will_paginate (~> 3.0.pre2)

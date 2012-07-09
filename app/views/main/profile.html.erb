@@ -1,0 +1,11 @@
+<%= render :partial=>"tasks/left_menu" %>
+	<div class="span9">
+          <div class="hero-unit">
+            <h3>You are </h3>
+	    <h1><%= current_user.email %></h1>
+	    <% if can? :all, Task %>
+	      <p>You can read, edit & delete tasks</p>
+	    <% end %>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->

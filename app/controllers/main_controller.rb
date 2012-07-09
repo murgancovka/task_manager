@@ -1,24 +1,19 @@
 class MainController < ActionController::Base
   protect_from_forgery
 
-  before_filter :authenticate_user!, :except => :index
-
+  before_filter :authenticate_user!, :except => [:index]
+  
+  layout 'application'
+ 
   def index
-	if authenticate_user!
-	  redirect_to :controller => :tasks            
+    if authenticate_user!
+      redirect_to :controller => :tasks            
       return false 
     end
   end
+  
+  def profile
 
-=begin
-  def index
-	if authenticate_user!
-		redirect_to :controller => :tasks            
-        return false 
-	else
-		render :text => "ASD :("
-	end
   end
-=end
 
 end

@@ -11,11 +11,15 @@
 	      
             <% if @task %>
 	      <h1><%= @task.name %></h1>
-	      <p>Deadline is <strong><%#= @task_main.deadline.strftime("%d/%m/%Y") %></strong></p>
-	      <%= simple_form_for @task, :url => { :action => :update, :id =>  @task.id  }, :html => { :class => 'well' } do |f| %>
-			<%= f.submit 'Check as done', :class=>'btn btn-success btn-large' %>
-			<%= f.submit 'Edit', :class=>'btn btn-warning btn-large' %>
-			<%= f.submit 'Cancel task', :class=>'btn btn-danger btn-large' %>
+	      <p>Deadline is <strong><%= @task.deadline %></strong></p>
+	      <% if !@task.is_done %>
+		<%= simple_form_for @task, :url => { :action => :update, :id =>  @task.id  }, :html => { :class => 'well' } do |f| %>
+			  <%= f.submit 'Check as done', :class=>'btn btn-success btn-large' %>
+			  <%#= f.submit 'Edit', :class=>'btn btn-warning btn-large' %>
+			  <%= f.submit 'Cancel task', :class=>'btn btn-danger btn-large' %>
+		<% end %>
+	      <% else %>
+		This task is done!
 	      <% end %>
 	    	<% else %>
 	      	<h1>I've not any tasks!</h1>

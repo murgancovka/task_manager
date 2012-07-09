@@ -1,4 +1,6 @@
 TaskManager::Application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -13,7 +15,8 @@ TaskManager::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
   match "/tasks/done_tasks" => "tasks#done_tasks"
-
+  match "/tasks/all_tasks" => "tasks#all_tasks"
+  match "/tasks/later" => "tasks#later"
   match "/tasks/destroy/(:id)" => "tasks#destroy"
 
   #resources :users

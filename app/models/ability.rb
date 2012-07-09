@@ -1,6 +1,7 @@
 class Ability
   include CanCan::Ability
   
+  
   def initialize(user)
     user ||= User.new # guest user
     
@@ -9,6 +10,8 @@ class Ability
     elsif user.role? :manager
 	  can :read, Task
 	  can :create, Task
+    #else
+    #  can :access, :main
       #authorize! :read, Task, :message => "Unable to read this article."
        #can :access, :home
       #authorize! :read, :all, :message => "Unable to read this article."
@@ -25,6 +28,7 @@ class Ability
       #end
     end
   end
+  
 
 end
 

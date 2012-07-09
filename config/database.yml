@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: test
+  database: task_manager_development
   host: localhost
   encoding: utf8
   username: root

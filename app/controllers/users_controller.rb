@@ -8,5 +8,9 @@ class UsersController < ActionController::Base
 	redirect_to :controller => :tasks            
     return false 
   end
+  
+  def profile
+    
+  end
 
 end

@@ -11,6 +11,8 @@ gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
 gem 'simple_form'
 gem 'rolify'
+gem 'event-calendar', :require => 'event_calendar'
+gem 'ui_datepicker-rails3'
 
 # Gems used only for assets and not required
 # in production environments by default.

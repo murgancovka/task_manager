@@ -58,10 +58,12 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |primary|
     primary.item :task, 'Add Task', new_task_path, :icon => ['icon-plus', 'icon-white']
-    primary.item :all_tasks, 'All Tasks', :icon => ['icon-list-alt', 'icon-white'] do |task|
+    primary.item :all_tasks, 'Tasks', :icon => ['icon-list-alt', 'icon-white'] do |task|
+       task.item :done, 'All Tasks', '/tasks/all_tasks'
       task.item :done, 'Done Tasks', '/tasks/done_tasks'
       task.item :later, 'Later will do', '/tasks/later'
     end
+    primary.item :task, 'Calendar', calendar_path, :icon => ['icon-calendar', 'icon-white']
     primary.dom_class = 'nav'
   end
 

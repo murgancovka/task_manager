@@ -5,10 +5,22 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "jquery", "bootstrap" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <% if controller.controller_name == "calendar" %>
+    <%= stylesheet_link_tag "event_calendar" %>
+    <%= javascript_include_tag "event_calendar" %>
+  <% end %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("input.ui-date-picker").datepicker({
+              dateFormat: "yy-mm-dd",
+              altFormat: "yy-mm-dd"
+          });
+    });
+  </script>
 </head>
 
   <body>
@@ -29,7 +41,7 @@
               <span class="caret"></span>
             </a>	
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
+              <li><a href="/main/profile">Profile</a></li>
               <li class="divider"></li>
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
             </ul>

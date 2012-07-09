@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(:version => 20120705065532) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
-  create_table "sections", :force => true do |t|
-    t.integer  "parent_id"
-    t.string   "name"
-    t.datetime "updated_at"
-    t.datetime "created_at"
-  end
-
   create_table "tasks", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
