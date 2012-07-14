@@ -9,26 +9,24 @@ Task Manager allows you create tasks (WORK STATUS: UNDONE)
 
 
 # Configurate
+
+ Firstly install bundle
+  
+    bundle install
  
- To play with blog just
+ To play with task manager just write 
  
     rake db:migrate
     
-  This command will generates two tables
+  This command will generates tables
   
   Then create some records
   
     rake db:seed
-  
-  And install bundle
-  
-    bundle install
     
   Then just
 
     rails s
-    
-  And you can login as test@estof.net with password 123456
     
         
 # What you can do?
